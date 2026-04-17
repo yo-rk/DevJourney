@@ -1,18 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="A personal portfolio showcasing my machine learning, frontend, and software projects." />
-  <title>Yashieta Sethi | Project Portfolio</title>
+  <title>Project Showcase — ML Gallery</title>
+  <meta name="description" content="A curated showcase of machine learning, cybersecurity, and computer vision projects built with cutting-edge technology." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <main>
-    <h1>My Project Portfolio</h1>
-    <p class="subheading">A growing collection of work, experiments, and ideas.</p>
-    <div id="cards-container" class="cards-container"></div>
-  </main>
-  <script type="module" src="/main.js"></script>
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise"></div>
+
+  <!-- CURSOR GLOW -->
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <div class="root">
+
+    <!-- ======================================================
+         HERO
+    ====================================================== -->
+    <section class="hero" id="hero">
+      <canvas class="star-canvas" id="star-canvas"></canvas>
+      <div class="hero-vignette"></div>
+      <div class="hero-grid"></div>
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="orb orb3"></div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">
+          <span class="eyebrow-line"></span>
+          <span>PORTFOLIO · 2025</span>
+        </p>
+        <h1 class="hero-title">
+          <span class="hero-line">Project</span>
+          <span class="hero-line gradient-text">Showcase</span>
+        </h1>
+        <p class="hero-sub">Building and experimenting with software and intelligent systems.</p>
+        <div class="hero-cta">
+          <button class="btn-primary" id="btn-view-projects" onclick="scrollToSection('featured')">
+            <span>View Projects</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button class="btn-ghost" id="btn-journey" onclick="scrollToSection('journey')">My Journey</button>
+        </div>
+      </div>
+
+      <div class="scroll-hint">
+        <span>SCROLL</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         MARQUEE
+    ====================================================== -->
+    <div class="marquee-wrap">
+      <div class="marquee">
+        <div class="track">
+          <span>Machine Learning</span><span class="dot">•</span>
+          <span>Cybersecurity</span><span class="dot">•</span>
+          <span>Computer Vision</span><span class="dot">•</span>
+          <span>Flask</span><span class="dot">•</span>
+          <span>TensorFlow</span><span class="dot">•</span>
+          <span>Machine Learning</span><span class="dot">•</span>
+          <span>Cybersecurity</span><span class="dot">•</span>
+          <span>Computer Vision</span><span class="dot">•</span>
+          <span>Flask</span><span class="dot">•</span>
+          <span>TensorFlow</span><span class="dot">•</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================
+         FEATURED — NIDS SPOTLIGHT
+    ====================================================== -->
+    <section class="section featured-section" id="featured">
+
+      <div class="section-header reveal">
+        <div class="section-label">
+          <span class="label-line"></span>
+          <span>PERSONAL RESEARCH</span>
+        </div>
+        <h2 class="section-title">Featured Project</h2>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats reveal" id="stats-row">
+        <div class="stat-item">
+          <span class="stat-num" id="cnt-proj">0</span>
+          <p class="stat-label">PROJECTS</p>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" id="cnt-acc">0</span>
+          <p class="stat-label">CNN ACCURACY</p>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" id="cnt-tech">0</span>
+          <p class="stat-label">TOOLS USED</p>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" id="cnt-star">0</span>
+          <p class="stat-label">STARRED</p>
+        </div>
+      </div>
+
+      <!-- Featured Card -->
+      <a href="https://github.com/yo-rk/cybersec-ir" target="_blank" rel="noopener noreferrer" class="spotlight-card-link">
+        <div class="spotlight-card reveal" id="card-0">
+          <div class="spotlight-glow"></div>
+          <div class="spotlight-grid"></div>
+          <div class="spotlight-inner">
+            <div class="card-header">
+              <div class="card-badges">
+                <span class="badge badge-category">Security</span>
+                <span class="badge badge-personal">PERSONAL</span>
+              </div>
+              <div class="card-meta-badges">
+                <span class="badge badge-new">NEW</span>
+                <span class="badge badge-featured">FEATURED</span>
+                <button class="star-btn" id="s0" onclick="event.preventDefault(); event.stopPropagation(); toggleStar(0)" aria-label="Star project">☆</button>
+              </div>
+            </div>
+
+            <h3 class="spotlight-title">Cybersecurity Incident Response Dashboard</h3>
+
+            <p class="spotlight-desc">
+              Simulated incident response system for detecting and managing cyber threats such as SQL injection, DDoS, and phishing,
+              with real-time alert tracking and dashboard visualization.
+            </p>
+
+            <div class="spotlight-meta">
+              <div class="tags">
+                <span>#Cybersecurity</span>
+                <span>#Flask</span>
+                <span>#Dashboard</span>
+                <span>#WebApp</span>
+              </div>
+              <div class="card-bottom">
+                <span class="star-count" id="sc0">☆ 0</span>
+                <span class="card-link">view project →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </section>
+
+    <!-- ======================================================
+         JOURNEY TIMELINE
+    ====================================================== -->
+    <section class="section journey-section" id="journey">
+
+      <div class="section-header reveal">
+        <div class="section-label">
+          <span class="label-line"></span>
+          <span>THE STORY SO FAR</span>
+        </div>
+        <h2 class="section-title">My Journey</h2>
+        <p class="journey-subtitle">Every project is a checkpoint. Here's how I got here.</p>
+      </div>
+
+      <div class="timeline">
+
+        <!-- VERTICAL SPINE -->
+        <div class="timeline-spine"></div>
+
+        <!-- ── ERA 1: Beginning ── -->
+        <div class="milestone reveal" id="milestone-start">
+          <div class="milestone-dot dot-dim">
+            <div class="dot-ring"></div>
+          </div>
+          <div class="milestone-header">
+            <span class="milestone-year">2024</span>
+            <span class="milestone-era">The Beginning</span>
+          </div>
+          <p class="milestone-desc">Started college and dove straight into Python and machine learning. First notebooks, first models that barely worked, first time things actually clicked.</p>
+        </div>
+
+        <!-- ── ERA 2: Internship ── -->
+        <div class="milestone reveal" id="milestone-intern">
+          <div class="milestone-dot dot-intern">
+            <div class="dot-ring"></div>
+          </div>
+          <div class="milestone-header">
+            <span class="milestone-year">2024</span>
+            <span class="milestone-era era-intern">Internship @ CodeAlpha</span>
+          </div>
+          <p class="milestone-desc">Built and shipped ML projects during an internship. Got hands-on with real datasets, Flask APIs, and the gap between clean tutorials and actual code.</p>
+
+          <!-- Internship project cards -->
+          <div class="timeline-cards">
+
+            <a href="https://github.com/yo-rk/CodeAlpha_DiseasePrediction" target="_blank" rel="noopener noreferrer" class="card-anchor">
+              <div class="card card-intern reveal" id="card-1">
+                <div class="card-top-bar"></div>
+                <div class="card-header">
+                  <span class="badge badge-category">Healthcare</span>
+                  <div class="card-meta-badges">
+                    <span class="badge badge-intern-tag">INTERNSHIP</span>
+                    <button class="star-btn" id="s1" onclick="event.preventDefault(); event.stopPropagation(); toggleStar(1)" aria-label="Star project">☆</button>
+                  </div>
+                </div>
+                <h3 class="card-title">Disease Prediction</h3>
+                <p class="card-desc">Flask-based ML system for predicting diseases from user symptoms using decision trees.</p>
+                <div class="tags">
+                  <span>#Flask</span><span>#DecisionTree</span><span>#Python</span>
+                </div>
+                <div class="card-bottom">
+                  <span class="star-count" id="sc1">☆ 0</span>
+                  <span class="card-link">view project →</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="https://github.com/yo-rk/CodeAlpha_HandwrittenCharacterRecognition" target="_blank" rel="noopener noreferrer" class="card-anchor">
+              <div class="card card-intern reveal" id="card-2">
+                <div class="card-top-bar"></div>
+                <div class="card-header">
+                  <span class="badge badge-category">Vision</span>
+                  <div class="card-meta-badges">
+                    <span class="badge badge-intern-tag">INTERNSHIP</span>
+                    <button class="star-btn" id="s2" onclick="event.preventDefault(); event.stopPropagation(); toggleStar(2)" aria-label="Star project">☆</button>
+                  </div>
+                </div>
+                <h3 class="card-title">Handwritten Digit Recognition</h3>
+                <p class="card-desc">CNN-based model for handwritten digit classification using MNIST, achieving ~99% accuracy with prediction visualization.</p>
+                <div class="tags">
+                  <span>#CNN</span><span>#TensorFlow</span><span>#MNIST</span>
+                </div>
+                <div class="card-bottom">
+                  <span class="star-count" id="sc2">☆ 0</span>
+                  <span class="card-link">view project →</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="https://github.com/yo-rk/CodeAlpha_CreditScroing" target="_blank" rel="noopener noreferrer" class="card-anchor">
+              <div class="card card-intern reveal" id="card-3">
+                <div class="card-top-bar"></div>
+                <div class="card-header">
+                  <span class="badge badge-category">Finance</span>
+                  <div class="card-meta-badges">
+                    <span class="badge badge-intern-tag">INTERNSHIP</span>
+                    <button class="star-btn" id="s3" onclick="event.preventDefault(); event.stopPropagation(); toggleStar(3)" aria-label="Star project">☆</button>
+                  </div>
+                </div>
+                <h3 class="card-title">Credit Risk Scoring</h3>
+                <p class="card-desc">Machine learning model predicting credit risk using logistic regression with basic feature engineering.</p>
+                <div class="tags">
+                  <span>#LogisticRegression</span><span>#Python</span><span>#FinTech</span>
+                </div>
+                <div class="card-bottom">
+                  <span class="star-count" id="sc3">☆ 0</span>
+                  <span class="card-link">view project →</span>
+                </div>
+              </div>
+            </a>
+
+          </div><!-- /.timeline-cards -->
+        </div><!-- /.milestone -->
+
+        <!-- ── ERA 3: Personal Projects ── -->
+        <div class="milestone reveal" id="milestone-personal">
+          <div class="milestone-dot dot-personal">
+            <div class="dot-ring"></div>
+            <div class="dot-pulse"></div>
+          </div>
+          <div class="milestone-header">
+            <span class="milestone-year">2025</span>
+            <span class="milestone-era era-personal">Personal Projects</span>
+          </div>
+          <p class="milestone-desc">Started building things I actually care about — outside briefs, outside grades. Real systems, real problems.</p>
+
+          <!-- Teaser linking to featured section -->
+          <div class="nids-teaser reveal">
+            <div class="nids-teaser-inner">
+              <span class="badge badge-personal">PERSONAL</span>
+              <span class="badge badge-new">FEATURED ABOVE ↑</span>
+            </div>
+            <h3 class="nids-teaser-title">Cybersecurity Incident Response Dashboard</h3>
+            <p class="nids-teaser-note">Flask · Real-time alerts · SQL injection, DDoS, phishing detection</p>
+            <button class="btn-ghost nids-scroll-btn" onclick="scrollToSection('featured')">
+              View Full Project ↑
+            </button>
+          </div>
+        </div>
+
+        <!-- ── ERA 4: What's Next ── -->
+        <div class="milestone reveal" id="milestone-next">
+          <div class="milestone-dot dot-future">
+            <div class="dot-ring"></div>
+          </div>
+          <div class="milestone-header">
+            <span class="milestone-year">Next</span>
+            <span class="milestone-era era-future">What's Coming</span>
+          </div>
+          <p class="milestone-desc">The grind continues. More research, deeper systems, and things that haven't been named yet.</p>
+        </div>
+
+      </div><!-- /.timeline -->
+    </section>
+
+    <!-- ======================================================
+         FOOTER
+    ====================================================== -->
+    <footer class="footer" id="footer">
+      <div class="footer-orb"></div>
+      <p class="footer-label">READY TO COLLABORATE</p>
+      <h2 class="footer-title">Let's Build Something.</h2>
+      <p class="footer-sub">Open to internships, freelance, and research collaborations.</p>
+      <a href="mailto:yashietasethi@gmail.com" class="btn-primary footer-btn" id="btn-footer-email">
+        <span>Say Hello</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+      </a>
+      <p class="footer-copy">© 2025 — Built with curiosity &amp; caffeine.</p>
+    </footer>
+
+  </div><!-- /.root -->
+
+  <script src="main.js"></script>
 </body>
 </html>
