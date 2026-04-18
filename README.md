@@ -2,8 +2,6 @@
 
 An interactive, animated portfolio showcasing my projects and experiments — from Machine Learning and Cybersecurity to Full-Stack Web Development.
 
-🔗 **Live:** [yo-rk.github.io/DevJourney](https://yo-rk.github.io/DevJourney/)
-
 ---
 
 ## ✨ Features
@@ -13,7 +11,6 @@ An interactive, animated portfolio showcasing my projects and experiments — fr
 - 3D tilt card interactions and scroll reveal animations
 - Cursor glow + parallax effects
 - Fully responsive across devices
-- Deployed via Vite + GitHub Pages
 
 ---
 
@@ -32,7 +29,7 @@ An interactive, animated portfolio showcasing my projects and experiments — fr
 
 - HTML5 + CSS3 + Vanilla JavaScript
 - Vite (build & dev server)
-- GitHub Pages (hosting)
+- Vercel (hosting)
 
 ---
 
@@ -58,13 +55,6 @@ DevJourney/
 ```bash
 npm install
 npm run dev
-```
-
-## 📦 Deploy
-
-```bash
-npm run build
-npm run deploy
 ```
 
 ---
