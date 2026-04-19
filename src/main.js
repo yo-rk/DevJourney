@@ -5,25 +5,59 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ── 1. CURSOR GLOW ─────────────────────────────────────── */
+  /* ── 1. CURSOR SYSTEM ─────────────────────────────────────── */
+  const dot  = document.getElementById("cursor-dot");
   const glow = document.getElementById("cursor-glow");
-  if (glow && window.matchMedia("(pointer: fine)").matches) {
-    let mouseX = 0, mouseY = 0;
-    let glowX   = 0, glowY   = 0;
 
+  if (dot && glow && window.matchMedia("(pointer: fine)").matches) {
+    let mouseX = 0, mouseY = 0;
+    let glowX  = 0, glowY  = 0;
+
+    // Track mouse position
     document.addEventListener("mousemove", (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
     });
 
-    // Smooth lerp so glow lazily follows cursor — cinematic feel
-    (function lerpGlow() {
+    // Animation loop: dot follows instantly, glow lerps behind
+    (function cursorLoop() {
+      // Dot: 1:1 tracking — translate3d for GPU compositing
+      dot.style.transform = `translate3d(${mouseX - 4}px, ${mouseY - 4}px, 0)`;
+
+      // Glow: cinematic lerp (0.08 = smooth trailing)
       glowX += (mouseX - glowX) * 0.08;
       glowY += (mouseY - glowY) * 0.08;
-      glow.style.left = glowX + "px";
-      glow.style.top  = glowY + "px";
-      requestAnimationFrame(lerpGlow);
+      glow.style.transform = `translate3d(${glowX - 150}px, ${glowY - 150}px, 0)`;
+
+      requestAnimationFrame(cursorLoop);
     })();
+
+    // Hover detection: interactive elements get .hovering state
+    const interactiveSelector = 'a, button, [role="button"], .card, .spotlight-card, .star-btn, .btn-primary, .btn-ghost, .nids-scroll-btn, .card-anchor, .spotlight-card-link';
+
+    document.addEventListener("mouseover", (e) => {
+      if (e.target.closest(interactiveSelector)) {
+        dot.classList.add("hovering");
+        glow.classList.add("hovering");
+      }
+    });
+
+    document.addEventListener("mouseout", (e) => {
+      if (e.target.closest(interactiveSelector)) {
+        dot.classList.remove("hovering");
+        glow.classList.remove("hovering");
+      }
+    });
+
+    // Hide cursor when mouse leaves the viewport
+    document.addEventListener("mouseleave", () => {
+      dot.style.opacity = "0";
+      glow.style.opacity = "0";
+    });
+    document.addEventListener("mouseenter", () => {
+      dot.style.opacity = "1";
+      glow.style.opacity = "1";
+    });
   }
 
   /* ── 2. STAR-FIELD CANVAS ───────────────────────────────── */

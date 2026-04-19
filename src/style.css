@@ -33,22 +33,63 @@ body {
   color: var(--text);
   font-family: var(--font-body);
   overflow-x: hidden;
-  cursor: none;
 }
 
 /* ---------- NOISE OVERLAY ---------- */
 .noise {
-  position: fixed; inset: 0; pointer-events: none; z-index: 999; opacity: 0.03;
+  position: fixed; inset: 0; pointer-events: none; z-index: 900; opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 200px;
 }
 
-/* ---------- CURSOR GLOW ---------- */
+/* ---------- GLOBAL CURSOR KILL ---------- */
+/* Override ALL elements — prevents native cursor from ever appearing */
+*, *::before, *::after,
+html, body, a, button, input, select, textarea, label,
+[role="button"], [onclick] {
+  cursor: none !important;
+}
+
+/* ---------- CURSOR SYSTEM ---------- */
+/* Dot: solid precision indicator — follows mouse 1:1 */
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent2);
+  box-shadow:
+    0 0 6px 2px rgba(167,139,250,0.7),
+    0 0 20px 4px rgba(167,139,250,0.3);
+  pointer-events: none;
+  z-index: 10001;
+  will-change: transform;
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Glow: ambient halo — follows with cinematic lerp delay */
 .cursor-glow {
-  position: fixed; width: 300px; height: 300px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%);
-  pointer-events: none; z-index: 998; transform: translate(-50%, -50%);
-  transition: top 0.05s linear, left 0.05s linear;
+  position: fixed;
+  top: 0; left: 0;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 10000;
+  will-change: transform;
+}
+
+/* Hover state: interactive elements get enlarged cursor */
+.cursor-dot.hovering {
+  width: 14px; height: 14px;
+  background: var(--accent3);
+  box-shadow:
+    0 0 8px 3px rgba(56,189,248,0.6),
+    0 0 24px 6px rgba(56,189,248,0.2);
+}
+
+.cursor-glow.hovering {
+  opacity: 0.6;
 }
 
 /* ============================================================
@@ -522,6 +563,9 @@ body {
   .timeline-cards { grid-template-columns: 1fr; }
   .section { padding: 60px 20px; }
   .spotlight-inner { padding: 28px 24px; }
-  body { cursor: auto; }
-  .cursor-glow { display: none; }
+  body { cursor: auto !important; }
+  *, *::before, *::after,
+  a, button, input, select, textarea, label,
+  [role="button"], [onclick] { cursor: auto !important; }
+  .cursor-dot, .cursor-glow { display: none !important; }
 }
