@@ -2,6 +2,8 @@
 
 An interactive, cinematic portfolio that maps my journey across **Machine Learning, Cybersecurity, and Full-Stack Development** — built as a **living, evolving system**, not just a static showcase.
 
+🔗 **Live:** [devjourney-yo-rk.vercel.app](https://devjourney-yo-rk.vercel.app/)
+
 ---
 
 ## 🌐 Live Experience

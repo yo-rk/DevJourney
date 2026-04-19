@@ -1,5 +1,5 @@
 /* ============================================================
-   ML-GALLERY — main.js
+   DevJourney — main.js
    Cinematic interactions + Journey Timeline support
    ============================================================ */
 
