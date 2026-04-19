@@ -1,56 +1,47 @@
 # 🚀 DevJourney
 
-An interactive, animated portfolio showcasing my projects and experiments — from Machine Learning and Cybersecurity to Full-Stack Web Development.
+An interactive, cinematic portfolio that maps my journey across **Machine Learning, Cybersecurity, and Full-Stack Development** — built as a **living, evolving system**, not just a static showcase.
 
 ---
 
-## ✨ Features
+## 🌐 Live Experience
 
-- Cinematic hero with animated star-field canvas
-- Journey timeline with milestone-based storytelling
-- 3D tilt card interactions and scroll reveal animations
-- Cursor glow + parallax effects
-- Fully responsive across devices
+👉 **https://dev-journe.vercel.app/**
+
+> Designed to be explored — not just read.
 
 ---
 
-## 📁 Projects Showcased
+## ✨ Core Highlights
 
-| Project | Category | Stack |
-|---------|----------|-------|
-| **Cybersecurity IR Dashboard** | Security | Flask · Supabase · Chart.js |
-| **Disease Prediction App** | Healthcare | Flask · Decision Trees · Python |
-| **Handwritten Digit Recognition** | Vision | CNN · TensorFlow · MNIST |
-| **Credit Risk Scoring** | Finance | Logistic Regression · Python |
+* 🌌 **Cinematic Hero** — animated starfield with layered depth
+* 🧠 **Narrative Timeline** — projects structured as milestones
+* 🎯 **Interactive UI** — hover depth, motion, and micro-interactions
+* ✨ **Custom Cursor System** — glow-based immersive interaction
+* 📱 **Fully Responsive** — smooth across all screen sizes
+
+---
+
+## 📁 Featured Projects
+
+| Project                           | Domain     | Key Focus                               |
+| --------------------------------- | ---------- | --------------------------------------- |
+| **Cybersecurity IR Dashboard**    | Security   | Threat simulation, alert tracking       |
+| **Disease Prediction App**        | Healthcare | ML-based symptom analysis               |
+| **Handwritten Digit Recognition** | Vision     | CNN (~99% accuracy)                     |
+| **Credit Risk Scoring**           | Finance    | Risk modeling using logistic regression |
 
 ---
 
 ## 🛠 Tech Stack
 
-- HTML5 + CSS3 + Vanilla JavaScript
-- Vite (build & dev server)
-- Vercel (hosting)
+* **Frontend:** HTML5 · CSS3 · Vanilla JavaScript
+* **Build Tool:** Vite
+* **Deployment:** Vercel
 
 ---
 
-## 📂 Project Structure
-
-```
-DevJourney/
-├── index.html
-├── src/
-│   ├── main.js
-│   └── style.css
-├── public/
-│   └── vite.svg
-├── vite.config.js
-├── package.json
-└── README.md
-```
-
----
-
-## 🚀 Run Locally
+## ⚙️ Local Development
 
 ```bash
 npm install
@@ -59,4 +50,20 @@ npm run dev
 
 ---
 
-> Made with caffeine, chaos, and no patience for basic portfolios.
+## 🧠 Design Philosophy
+
+This project focuses on:
+
+* Turning a portfolio into an **experience**
+* Emphasizing **interaction over static presentation**
+* Building with **intentional UI systems**, not just visuals
+
+---
+
+## 📌 Note
+
+The project is actively evolving — improvements in UI systems, interactions, and performance are continuously being explored.
+
+---
+
+> Built with curiosity, iteration, and a refusal to settle for “just another portfolio.”
